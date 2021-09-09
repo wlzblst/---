@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gyw.dao.EmpDao">
+    
+    <select id="queryAllEmp" resultType="com.gyw.pojo.Emp">
+        select * from ems_thymeleaf.t_emp
+    </select>
+    
+    <select id="queryEmpById" parameterType="String" resultType="com.gyw.pojo.Emp">
+        select * from ems_thymeleaf.t_emp where id=#{id}
+    </select>
+    
+    <update id="updateEmp" parameterType="Emp">
+        update ems_thymeleaf.t_emp set name=#{name},slary = #{slary},age=#{age}, bir=#{bir} where id=#{id}
+    </update>
+    
+    <insert id="addEmp" parameterType="Emp">
+        insert into ems_thymeleaf.t_emp values(#{id},#{name},#{slary},#{age},#{bir})
+    </insert>
+    
+    <delete id="deleteEmp" parameterType="String">
+        delete from ems_thymeleaf.t_emp where id=#{id}
+    </delete>
+</mapper>
